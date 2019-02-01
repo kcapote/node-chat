@@ -11,7 +11,7 @@ if (!params.has('nombre')) {
 }
 
 var usuario = {
-    usuario: params.get('nombre')
+    nombre: params.get('nombre')
 }
 
 socket.on('connect', function() {
@@ -41,8 +41,15 @@ socket.emit('enviarMensaje', {
 });
 
 // Escuchar información
-socket.on('enviarMensaje', function(mensaje) {
+socket.on('crearMensaje', function(mensaje) {
 
     console.log('Servidor:', mensaje);
+
+});
+
+
+socket.on('listaPersona', function(personas) {
+
+    console.log('Servidor:', personas);
 
 });
